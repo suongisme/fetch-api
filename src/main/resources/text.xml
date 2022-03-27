@@ -1,0 +1,36 @@
+<OTA_AirLowFareSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="123" ResponseType="OTA">
+    <originDestinationInformation xmlns="">
+        <DepartureDateTime>2022-07-25T14:00:00</DepartureDateTime>
+        <OriginLocation LocationCode="SGN"/>
+        <DestinationLocation LocationCode="TYO"/>
+    </originDestinationInformation>
+    <originDestinationInformation xmlns="">
+        <DepartureDateTime>2022-07-30T18:00:00</DepartureDateTime>
+        <OriginLocation LocationCode="HKG"/>
+        <DestinationLocation LocationCode="SIN"/></originDestinationInformation>
+    <POS xmlns="">
+        <Source PseudoCityCode="8HP6">
+            <RequestorID ID="1" Type="1">
+                <CompanyName Code="TN"/>
+            </RequestorID>
+        </Source>
+    </POS>
+    <TravelPreferences xmlns="" MaxStopsQuantity="1" ValidInterlineTicket="true">
+        <TPA_Extensions>
+            <OnlineIndicator Ind="false"/>
+            <LongConnectTime Enable="true" Min="780" Max="1439"/>
+            <JumpCabinLogic Disabled="true"/>
+        </TPA_Extensions>
+    </TravelPreferences>
+    <TravelerInfoSummary xmlns="">
+        <SeatsRequested>1</SeatsRequested>
+        <AirTravelerAvail>
+            <AirTravelerAvail Code="ADT"Quantity="1"/>
+        </AirTravelerAvail>
+    </TravelerInfoSummary>
+    <TPA_Extensions xmlns="">
+        <IntelliSellTransaction>
+            <RequestType Name="50ITINS"/>
+        </IntelliSellTransaction>
+    </TPA_Extensions>
+</OTA_AirLowFareSearchRQ>

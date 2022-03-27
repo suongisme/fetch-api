@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OTA_AirLowFareSearchRS Version="123"
+                        xmlns="http://www.opentravel.org/OTA/2003/05"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Errors>
+        <Error Type="SERVER" Code="gca14-isell-tn-00-2022-03-01-7xq8.us-central1-a.c.sab-cert-offers-1379.internal" ShortText="80">TOMCAT</Error>
+        <Error Type="ERR" Code="INVALIDREQ" ShortText="Schema Validation Failed">
+            cvc-complex-type.2.4.a: Invalid content was found starting with element 'o
+            riginDestinationInformation'. One of '{"http://www.opentravel.org/OTA/2003/05":POS}' is expected.
+        </Error>
+    </Errors>
+</OTA_AirLowFareSearchRS>

@@ -1,0 +1,7 @@
+config:
+  api: "https://testsite.infini-hostlink.com/HostLinkService/infiniAPI.asp"
+  host: "testsite.infini-hostlink.com"
+  X-XML-Booking-Session: "SESSION=START_END"
+  X-XML-Booking-PCC: "PCC=8HL6"
+  X-XML-Booking-Host: "HOST=SWS"
+  X-XML-Booking-SWSCONFIG: "SERVICE=BargainFinderMaxRQ,ACTION=BargainFinderMaxRQ"
