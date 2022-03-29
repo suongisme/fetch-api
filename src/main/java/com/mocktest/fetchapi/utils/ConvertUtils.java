@@ -15,21 +15,20 @@ import java.util.Map;
  * @created 3/26/2022
  */
 
-@Component
 public class ConvertUtils {
 
-    public String objectToXml(Object object) throws JsonProcessingException {
+    public static String objectToXml(Object object) throws JsonProcessingException {
         XmlMapper xmlMapper = new XmlMapper();
         xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
         return xmlMapper.writeValueAsString(object);
     }
 
-    public <T> T xmlToObject(String xml, Class<T> clazz) throws JsonProcessingException {
+    public static  <T> T xmlToObject(String xml, Class<T> clazz) throws JsonProcessingException {
         XmlMapper xmlMapper = new XmlMapper();
         return xmlMapper.readValue(xml, clazz);
     }
 
-    public Map xmlToMap(String xmlResult) {
+    public static Map xmlToMap(String xmlResult) {
         JSONObject jsonObject = XML.toJSONObject(xmlResult);
         JacksonJsonParser jacksonJsonParser = new JacksonJsonParser();
         return jacksonJsonParser.parseMap(jsonObject.toString());

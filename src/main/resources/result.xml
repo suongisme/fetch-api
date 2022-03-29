@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<OTA_AirLowFareSearchRS Version="123"
-                        xmlns="http://www.opentravel.org/OTA/2003/05"
-                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <Errors>
-        <Error Type="SERVER" Code="gca14-isell-tn-00-2022-03-01-7xq8.us-central1-a.c.sab-cert-offers-1379.internal" ShortText="80">TOMCAT</Error>
-        <Error Type="ERR" Code="INVALIDREQ" ShortText="Schema Validation Failed">
-            cvc-complex-type.2.4.a: Invalid content was found starting with element 'o
-            riginDestinationInformation'. One of '{"http://www.opentravel.org/OTA/2003/05":POS}' is expected.
-        </Error>
-    </Errors>
-</OTA_AirLowFareSearchRS>
+<OTA_AirLowFareSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="123" ResponseType="OTA"><POS><Source PseudoCityCode="8HP6"><RequestorID ID="1" Type="1"><CompanyName Code="TN"/></RequestorID></Source></POS><OriginDestinationInformation><DepartureDateTime>2022-07-25T14:00:00</DepartureDateTime><OriginLocation LocationCode="SGN"/><DestinationLocation LocationCode="TYO"/></OriginDestinationInformation><OriginDestinationInformation><DepartureDateTime>2022-07-30T18:00:00</DepartureDateTime><OriginLocation LocationCode="HKG"/><DestinationLocation LocationCode="SIN"/></OriginDestinationInformation><TravelPreferences MaxStopsQuantity="1" ValidInterlineTicket="true"><TPA_Extensions><OnlineIndicator Ind="false"/><LongConnectTime Enable="true" Min="780" Max="1439"/><JumpCabinLogic Disabled="true"/></TPA_Extensions></TravelPreferences><TravelerInfoSummary><SeatsRequested>1</SeatsRequested><AirTravelerAvail><PassengerTypeQuantity Code="ADT" Quantity="1"/></AirTravelerAvail></TravelerInfoSummary><TPA_Extensions><IntelliSellTransaction><RequestType Name="50ITINS"/></IntelliSellTransaction></TPA_Extensions></OTA_AirLowFareSearchRQ>

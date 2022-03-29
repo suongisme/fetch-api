@@ -1,0 +1,152 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.opentravel.org/OTA/2003/05" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="OTA_AirLowFareSearchRQ">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="POS">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Source">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="RequestorID">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="CompanyName">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute type="xs:string" name="Code"/>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute type="xs:byte" name="ID"/>
+                                                <xs:attribute type="xs:byte" name="Type"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="PseudoCityCode"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="OriginDestinationInformation" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:dateTime" name="DepartureDateTime"/>
+                            <xs:element name="OriginLocation">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="LocationCode" use="optional"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DestinationLocation">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="LocationCode" use="optional"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="TravelPreferences">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="TPA_Extensions">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="OnlineIndicator">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="Ind"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="LongConnectTime">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="Enable"/>
+                                                        <xs:attribute type="xs:short" name="Min"/>
+                                                        <xs:attribute type="xs:short" name="Max"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="JumpCabinLogic">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="Disabled"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:byte" name="MaxStopsQuantity"/>
+                        <xs:attribute type="xs:string" name="ValidInterlineTicket"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="TravelerInfoSummary">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:byte" name="SeatsRequested"/>
+                            <xs:element name="AirTravelerAvail">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="PassengerTypeQuantity">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="Code"/>
+                                                        <xs:attribute type="xs:byte" name="Quantity"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="TPA_Extensions">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="IntelliSellTransaction">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="RequestType">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="Name"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:byte" name="Version"/>
+            <xs:attribute type="xs:string" name="ResponseType"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

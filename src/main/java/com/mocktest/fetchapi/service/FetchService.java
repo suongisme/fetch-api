@@ -3,6 +3,7 @@ package com.mocktest.fetchapi.service;
 import com.mocktest.fetchapi.model.OTAAirLowFareSearchRQ;
 import com.mocktest.fetchapi.model.ResultModel;
 import com.mocktest.fetchapi.utils.ConvertUtils;
+import com.mocktest.fetchapi.utils.XmlUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,9 +12,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author SuongNguyen
@@ -42,14 +40,15 @@ public class FetchService {
     @Value("${config.X-XML-Booking-SWSCONFIG}")
     private String bookingSWSConfig;
 
-    @Autowired
-    private ConvertUtils convertUtils;
-
     public ResultModel search(OTAAirLowFareSearchRQ otaAirLowFareSearchRQ) {
         try {
-            String xml = this.convertUtils.objectToXml(otaAirLowFareSearchRQ);
-//            xml = xml.replaceAll("xmlns=\"\"", "");
+            String xml = ConvertUtils.objectToXml(otaAirLowFareSearchRQ);
             log.info("xml: {}", xml);
+            log.info("validate xml");
+            if (!XmlUtils.isXml(xml, XmlUtils.REQUEST_XSD)) {
+                log.error("xml is invalid");
+                return new ResultModel(null, HttpStatus.BAD_REQUEST);
+            }
             RestTemplate restTemplate = new RestTemplate();
 
             HttpHeaders headers = new HttpHeaders();
@@ -63,7 +62,7 @@ public class FetchService {
 
             String xmlResult = restTemplate.postForObject(this.api, httpEntity, String.class);
             log.info("result: {}", xmlResult);
-            return new ResultModel( this.convertUtils.xmlToMap(xmlResult), HttpStatus.OK);
+            return new ResultModel( ConvertUtils.xmlToMap(xmlResult), HttpStatus.OK);
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
             return new ResultModel(null, HttpStatus.INTERNAL_SERVER_ERROR);
